@@ -1,13 +1,9 @@
-# Railway Nixpacks: Corepack often fails to resolve pnpm.cjs in the cache mount.
-# Install pnpm via npm instead, and use Node 22.
+# Align with Railway Nixpacks defaults: Node 22 + pnpm 9.
 [variables]
 NIXPACKS_NODE_VERSION = "22"
 
 [phases.install]
-cmds = [
-  "npm install -g pnpm@12.10.1",
-  "pnpm install --frozen-lockfile",
-]
+cmds = ["pnpm install --frozen-lockfile"]
 
 [phases.build]
 cmds = ["pnpm run build"]
